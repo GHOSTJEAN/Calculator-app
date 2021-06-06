@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator App</title>
+    <script defer src="index.js"></script><link href="style.css" rel="stylesheet"></head>
+    <body>
+        <div class="calc calc--theme-1" id="app">
+            <div class="calc__wrapper">
+                <div class="calc__header">
+                    <div class="calc__title">
+                    
+                        <h3>calc</h3>
+                    </div>
+                    <div class="calc__theme">
+                        <div class="calc__label">
+                            <span>theme</span>
+                        </div>
+                        <div class="calc__switch">
+                           <div class="calc__indicator">
+                               <span>1</span>
+                               <span>2</span>
+                               <span>3</span>
+                           </div>
+                           <div class="calc__switch-change">
+                
+                            <label class="calc__radio">
+                                <input type="radio" name="theme" aria-label="theme-1" checked id="theme-1">
+                                <span class="calc__checkmark"></span>
+                            </label>
+                            <label class="calc__radio">
+                                <input type="radio" name="theme" aria-label="theme-2" id="theme-2">
+                                <span class="calc__checkmark"></span>
+                            </label>
+                            <label class="calc__radio">
+                                <input type="radio" name="theme" aria-label="theme-3" id="theme-3">
+                                <span class="calc__checkmark"></span>
+                            </label>
+                
+                           </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="calc__screen">
+                    <p id="screen">0</p> 
+                </div>
+                <div class="calc__keyboard">
+                    <div class="calc__keyboard-a">
+                        <button class="btn">7</button>
+                        <button class="btn">8</button>
+                        <button class="btn">9</button>
+                        <button class="btn">del</button>
+                        <button class="btn">4</button>
+                        <button class="btn">5</button>
+                        <button class="btn">6</button>
+                        <button class="btn">&#43;</button>
+                        <button class="btn">1</button>
+                        <button class="btn">2</button>
+                        <button class="btn">3</button>
+                        <button class="btn">-</button>
+                        <button class="btn">&#46;</button>
+                        <button class="btn">0</button>
+                        <button class="btn">&#47;</button>
+                        <button class="btn">x</button>
+                    </div>
+                    <div class="calc__keyboard-b">
+                        <button class="btn btn__large">reset</button>
+                        <button class="btn btn__large" aria-label="button equal" >&#61;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,159 @@
+@use "sass:map";
+
+
+ $main_background :(
+     "theme-1": hsl(222, 26%, 31%),
+     "theme-2": hsl(0, 0%, 90%),
+     "theme-3": hsl(268, 75%, 9%),
+ );
+
+ $toggle_background:(
+   "theme-1":  hsl(224, 36%, 15%),
+   "theme-2": hsl(0, 5%, 81%),
+   "theme-3": hsl(268, 71%, 12%),
+ ) ;
+
+ $keypad_background :(
+    "theme-1": hsl(223, 31%, 20%),
+    "theme-2": hsl(0, 5%, 81%),
+    "theme-3": hsl(268, 71%, 12%),
+ );
+
+ $screen_background:(
+  "theme-1": hsl(224, 36%, 15%),
+  "theme-2": hsl(0, 0%, 93%),
+  "theme-3": hsl(268, 71%, 12%),
+ );
+
+
+ $key_toggle:(
+     "theme-1":hsl(6, 63%, 50%),
+     "theme-2":hsl(25, 98%, 40%),
+     "theme-3":hsl(176, 100%, 44%),
+ );
+
+ $key_background_a:(
+     "theme-1": hsl(225, 21%, 49%),
+     "theme-2": hsl(185, 42%, 37%),
+     "theme-3": hsl(281, 89%, 26%),
+ );
+
+ $key_shadow_a:(
+     "theme-1":hsl(224, 28%, 35%),
+     "theme-2":hsl(185, 58%, 25%),
+     "theme-3":hsl(285, 91%, 52%),
+ );
+
+ $key_background_b:(
+     "theme-1":hsl(6, 63%, 50%),
+     "theme-2":hsl(25, 98%, 40%),
+     "theme-3":hsl(176, 100%, 44%),
+ );
+
+ $key_shadow_b:(
+     "theme-1":hsl(6, 70%, 34%),
+     "theme-2":hsl(25, 99%, 27%),
+     "theme-3":hsl(177, 92%, 70%),
+ );
+
+ $key_background_c:(
+     "theme-1": hsl(30, 25%, 89%),
+     "theme-2": hsl(45, 7%, 89%),
+     "theme-3": hsl(268, 47%, 21%),
+ );
+
+ $key_shadow_c:(
+     "theme-1":hsl(28, 16%, 65%),
+     "theme-2":hsl(35, 11%, 61%),
+     "theme-3":hsl(290, 70%, 36%),
+ );
+
+
+ $color_text:(
+     "theme-1": hsl(0, 0, 100%),
+     "theme-2": hsl(60, 10%, 19%),
+     "theme-3": hsl(52, 100%, 62%),
+ );
+
+ $key_color_text:(
+     "theme-1": hsl(221, 14%, 31%),
+     "theme-2": hsl(60, 10%, 19%),
+     "theme-3": hsl(52, 100%, 62%),
+ );
+
+ %tr{
+    transition: all .5s ease;
+ }
+
+ @for $var from 1 to 4 {
+     $t :calc--theme-#{$var};
+     .#{$t}{
+        @extend %tr;
+        background:map.get($main_background, theme-#{$var});
+        color: map.get($color_text, theme-#{$var});
+
+        & .calc__switch-change{
+            background:map.get($toggle_background, theme-#{$var});   
+            border-color: map.get($toggle_background, theme-#{$var});
+            & .calc__radio:nth-child(#{$var}) .calc__checkmark{
+                background:map.get($key_toggle, theme-#{$var});
+            }
+         }
+    
+         & .calc__screen{
+            background:map.get($screen_background, theme-#{$var});
+            border-color: map.get($screen_background, theme-#{$var});
+         }
+    
+         & .calc__keyboard{
+            background:map.get($keypad_background, theme-#{$var});
+            border-color: map.get($keypad_background, theme-#{$var});
+         }
+    
+         & .btn{
+            background:map.get($key_background_c, theme-#{$var});
+            color: map.get($key_color_text, theme-#{$var}); 
+            box-shadow: 0 3px map.get($key_shadow_c, theme-#{$var});
+            &:active {
+                box-shadow: 0 1px map.get($key_shadow_c, theme-#{$var});
+            }
+         }
+          
+    
+         & .calc__keyboard-b .btn:nth-child(2){ 
+            background:map.get($key_background_b, theme-#{$var});
+            color:map.get($color_text, "theme-1");
+            box-shadow: 0 3px map.get($key_shadow_b, theme-#{$var});
+            &:active {
+                box-shadow: 0 1px map.get($key_shadow_b, theme-#{$var});
+            }
+         }
+    
+         %blue-btn{
+            background:map.get($key_background_a, theme-#{$var});
+            color:map.get($color_text, "theme-1");
+            box-shadow: 0 3px map.get($key_shadow_a, theme-#{$var});
+            &:active {
+                box-shadow: 0 1px map.get($key_shadow_a, theme-#{$var});
+            }
+         }
+    
+         & .calc__keyboard-b .btn:nth-child(1){
+            @extend %blue-btn;
+         }
+    
+         & .calc__keyboard-a .btn:nth-child(4){
+            @extend %blue-btn;
+         }
+     }
+    
+ }
+
+ .calc--theme-3{
+    .calc__keyboard-b .btn:nth-child(2){
+        color: black;
+     }
+ }
+
+
+ 

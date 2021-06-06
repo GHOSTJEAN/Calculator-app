@@ -1,0 +1,182 @@
+
+body{
+    overflow: hidden;
+}
+
+%flex{
+  display: flex;
+}
+
+%flex-child{
+    flex-basis: 50%;
+}
+
+%grid{
+    display: grid;
+    gap: 20px;
+}
+
+%border{
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+%padding{
+    padding: 20px;
+}
+
+%position{
+    position: absolute;
+}
+
+.calc{
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.calc__wrapper{
+    @extend %grid;
+    gap: 20px;
+}
+
+.calc__header{
+  @extend %flex;
+}
+
+.calc__title{
+  @extend %flex-child;
+}
+
+.calc__screen{
+    position: relative;
+    height: 100px;
+    @extend %border;
+    @extend %padding;
+    
+    p{
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        left: 20px;
+        text-align: right;
+        overflow-x: auto;
+        height: auto;
+        white-space: nowrap;
+    }
+}
+ 
+
+.calc__keyboard{
+  @extend %grid;
+  grid-template-rows: auto;
+  @extend %border;
+  @extend %padding;
+}
+
+.calc__keyboard-a{
+    @extend %grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.calc__keyboard-b{
+  @extend %grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+
+
+.calc__theme{
+    position: relative;
+    /*@extend %grid;*/
+    @extend %flex-child;
+   
+    grid-template-columns: 1fr 1fr;
+}
+
+.calc__label{
+    @extend %position;
+    top: 50%;
+    transform: translateY(-40%);
+    left: 40%;
+    text-align: right;
+    display: inline-block;
+}
+
+.calc__switch-change{
+    @extend %border;
+    width: 70px;
+    position: relative;
+    @extend %flex;
+    justify-content: space-around;
+}
+
+.calc__radio{
+   height: 20px;
+}
+
+.calc__radio input{
+    opacity: 0;
+    position: absolute;
+    margin-left: -7px;
+}
+
+.calc__checkmark{
+    position: absolute;
+    top: 0;
+    margin: 2px -8px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    @extend %flex;
+    justify-content: space-around;
+}
+
+
+.calc__switch{
+    @extend %position;
+    right: 0;
+
+    display: inline-block;
+    @extend %flex;
+    flex-direction: column;
+}
+
+.calc__indicator{
+    @extend %flex;
+    width: 70px;
+    justify-content: space-around;
+}
+
+
+
+@media screen and (max-width:600px) {
+    .calc{
+        align-items: flex-start;
+    }
+
+    .calc__wrapper{
+        padding: 20px;
+    }
+
+   .calc__label{
+        left: 25%;
+    }
+    
+     .calc__screen{
+      height: 90px;
+    }
+/*
+    
+
+    .calc__keyboard{
+        grid-auto-columns: 100%;
+    }*/
+
+}
+

@@ -1,0 +1,34 @@
+
+.btn{
+    width: 80px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:focus{
+        border: 1px solid  #000;
+    }
+}
+
+.btn__large{
+    width: 180px;
+    &:focus{
+        background: rgba(255, 255, 255, 0.253);
+    }
+}
+
+.btn:active {
+    transform: translateY(2px);
+}
+
+@media screen and (max-width:600px){
+    .btn{
+        width: 3.2em;
+        height: 3.2em;
+    }
+
+    .btn__large{
+        width: 7.5em;
+    }
+}
