@@ -37,6 +37,6 @@ I recommended MDN (Mozilla Developper Network) site for good explanation of css,
 
 ## Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@jeanNdagui](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@GHOSTJEAN](https://www.frontendmentor.io/profile/GHOSTJEAN)
+- Twitter - [@jeanNdagui](https://twitter.com/LouisNdagui)
 
